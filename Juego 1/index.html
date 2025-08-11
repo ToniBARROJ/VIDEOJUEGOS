@@ -10,11 +10,25 @@
             background: #222;
             margin: 0;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                width: 50%;
+                height: 30px;
+                margin-top: 50px;
+                text-align: center;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
         }
 
         canvas {
             display: block;
-            margin: 100px auto;
+            margin: 50px auto;
             background: black;
         }
     </style>
@@ -22,6 +36,7 @@
 <body>
 
     <body>
+        <input type="text" class="input" value="">
         <canvas id="gameCanvas" width="500" height="500"></canvas>
         <script src="game.js"></script>
     </body>
