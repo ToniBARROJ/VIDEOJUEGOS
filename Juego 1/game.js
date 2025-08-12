@@ -1,20 +1,15 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const textInput = document.querySelector('.input')
-// Variables del cuadrado
 
-let x = 100;
-let y = 100;
-let speedX = 2;
-let speedY = 1.5;
-const size = 50;
-let color = "red"
+// Variables de teclas y colisión con canvas
+
 let keys = {
     w: false,
     a: false,
     s: false,
     d: false,
-    space: false
+    space: false // Para aplicar efectos al cuadrado en el futuro (gravedad, giros,...)
 }
 let hit = false;
 let touchLimits = false;
@@ -51,7 +46,7 @@ const objects = [
 const firstSquare = objects[0];
 const secondSquare = objects[1];
 
-// Función para actualizar la posición
+// Función para actualizar automáticamente la posición
 
 function update() {
     firstSquare.x += firstSquare.speedX;
@@ -118,7 +113,7 @@ function move() {
         firstSquare.x = 0;
         hit = true;
     }
-    if (firstSquare.y + size > canvas.height) {
+    if (firstSquare.y + firstSquare.size > canvas.height) {
         firstSquare.y = canvas.height - firstSquare.size;
         hit = true;
     } else if (firstSquare.y < 0) {
@@ -172,7 +167,6 @@ function objectColision() {
         firstSquare.y = 0;
         hit = true;
     }
-
 
     const colision = isColiding(firstSquare.x, firstSquare.y, firstSquare.size, firstSquare.size, secondSquare.x, secondSquare.y, secondSquare.size, secondSquare.size);
 
